@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Board{
+    height: 400px;
+    width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Board > div{
+    flex-basis: 25%;
+    flex-grow: 1;
+    background-color: #c9dce6;
+    margin: 5px;
+    position: relative;
+}
+
+.Board > div.x::before{
+    content: '';
+    height: 100px;
+    width: 10px;
+    position:absolute;
+    top: 10%;
+    transform: rotate(50deg);
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board > div.x::after{
+    content: '';
+    height: 100px;
+    width: 10px;
+    position:absolute;
+    top: 10%;
+    transform: rotate(-50deg);
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board > div.x{
+    background-color: #f44e4e;
+}
+.Board > div.o::before{
+    content: '';
+    height: 70px;
+    width: 70px;
+    position:absolute;
+    top: 20%;
+    right: 20%;
+    border-radius:  50%;
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board > div.o::after{
+    content: '';
+    height: 50px;
+    width: 50px;
+    position:absolute;
+    top: 28%;
+    right: 28%;
+    border-radius:  50%;
+    background-color: #ffec8a;
+    
+}
+.Board > div.o{
+    background-color: #ffec8a;
+    cursor: not-allowed;
+}
+/*---------------Board.o------------------------------*/
+.Board.o > div:hover{
+    background-color: #ffec8a;
+    cursor: pointer;
+}
+.Board.o > div:hover::before{
+    content: '';
+    height: 70px;
+    width: 70px;
+    position:absolute;
+    top: 20%;
+    right: 20%;
+    border-radius:  50%;
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board.o > div:hover::after{
+    content: '';
+    height: 50px;
+    width: 50px;
+    position:absolute;
+    top: 28%;
+    right: 28%;
+    border-radius:  50%;
+    background-color: #ffec8a;
+    
+}
+
+/*------------------------Board.x-------------------------*/
+.Board.x > div:hover{
+    opacity: 0.6;
+    cursor: pointer;
+    background-color: #f44e4e;
+}
+.Board.x > div:hover::before{
+    content: '';
+    height: 100px;
+    width: 10px;
+    position:absolute;
+    top: 10%;
+    transform: rotate(50deg);
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board.x > div:hover::after{
+    content: '';
+    height: 100px;
+    width: 10px;
+    position:absolute;
+    top: 10%;
+    transform: rotate(-50deg);
+    background-color: rgb(255, 255, 255);
+    
+}
+.Board.locked > div:hover{
+    cursor: not-allowed;
+}
+/*-------FIX-----------*/
+.Board.x > div.o:hover{
+    pointer-events: none;
+}
